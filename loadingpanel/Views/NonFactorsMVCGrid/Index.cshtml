@@ -1,0 +1,86 @@
+﻿@using loadingpanel.ViewModels
+@model IEnumerable<SendEmailViewModel>
+@{
+    ViewData["Title"] = "Awesome Depiction of a MVC Grid...";
+}
+<html>
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/MVCGridItems/mvc-grid.css"/>
+    <script src="http://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous">
+    </script>
+    <script src="/MVCGridItems/mvc-grid.js"></script>
+    <script>
+        $('.mvc-grid').mvcgrid();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h2><i class="fa fa-audio-description" aria-hidden="true"></i>&nbsp;<i>Awesome Depiction</i> of a MVC Grid...</h2>
+            <p>@ViewData["Message"]</p>
+            @*<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Name)</th>
+                        <th>@Html.DisplayNameFor(model => model.Email)</th>
+                        <th>@Html.DisplayNameFor(model => model.Subject)</th>
+                        <th>@Html.DisplayNameFor(model => model.Message)</th>
+                        <th>@Html.DisplayNameFor(model => model.TimeStampSent)</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Name)</th>
+                        <th>@Html.DisplayNameFor(model => model.Email)</th>
+                        <th>@Html.DisplayNameFor(model => model.Subject)</th>
+                        <th>@Html.DisplayNameFor(model => model.Message)</th>
+                        <th>@Html.DisplayNameFor(model => model.TimeStampSent)</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Subject)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Message)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TimeStampSent)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>*@
+
+            @(Html
+            .Grid(Model)
+            .Build(columns =>
+            {
+                columns.Add(model => model.Name).Titled("Name");
+                columns.Add(model => model.Email).Titled("Email");
+                columns.Add(model => model.Subject).Titled("Subject");
+                columns.Add(model => model.Message).Titled("Message");
+                columns.Add(model => model.TimeStampSent).Titled("TimeStampSent");
+            })
+            .Filterable()
+            .Sortable()
+            .Pageable()
+            )
+
+        </div>
+    </div>
+</body>
+</html>
