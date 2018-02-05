@@ -19,48 +19,6 @@
         <div class="row">
             <h2><i class="fa fa-audio-description" aria-hidden="true"></i>&nbsp;<i>Awesome Depiction</i> of a MVC Grid...</h2>
             <p>@ViewData["Message"]</p>
-            @*<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                <thead>
-                    <tr>
-                        <th>@Html.DisplayNameFor(model => model.Name)</th>
-                        <th>@Html.DisplayNameFor(model => model.Email)</th>
-                        <th>@Html.DisplayNameFor(model => model.Subject)</th>
-                        <th>@Html.DisplayNameFor(model => model.Message)</th>
-                        <th>@Html.DisplayNameFor(model => model.TimeStampSent)</th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <th>@Html.DisplayNameFor(model => model.Name)</th>
-                        <th>@Html.DisplayNameFor(model => model.Email)</th>
-                        <th>@Html.DisplayNameFor(model => model.Subject)</th>
-                        <th>@Html.DisplayNameFor(model => model.Message)</th>
-                        <th>@Html.DisplayNameFor(model => model.TimeStampSent)</th>
-                    </tr>
-                </tfoot>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Email)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Subject)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Message)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.TimeStampSent)
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>*@
 
             @(Html
             .Grid(Model)
