@@ -36,7 +36,7 @@ namespace loadingpanel
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=NonFactorsMVCGrid}/{action=Index}/{id?}");
+                    template: "{controller=DataTables}/{action=Index}/{id?}");
             });
         }
     }
