@@ -30,9 +30,12 @@
                 columns.Add(model => model.Message).Titled("Message");
                 columns.Add(model => model.TimeStampSent).Titled("TimeStampSent");
             })
-            .Filterable()
             .Sortable()
-            .Pageable()
+            .Pageable(pager =>
+            {
+                pager.RowsPerPage = 10;
+            })
+            .Css("table-hover")
             )
 
         </div>
