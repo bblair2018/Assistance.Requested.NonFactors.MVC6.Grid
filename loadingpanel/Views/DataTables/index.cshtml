@@ -34,28 +34,6 @@
                         <th>@Html.DisplayNameFor(model => model.TimeStampSent)</th>
                     </tr>
                 </tfoot>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Email)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Subject)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Message)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.TimeStampSent)
-                            </td>
-                        </tr>
-                    }
-                </tbody>
             </table>
 
         </div>
@@ -69,7 +47,16 @@
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('#example').DataTable();
+            $('#example').DataTable({
+                "ajax": '/Ajax/arrays.txt',
+                "columns": [
+                    { "data": "Name" },
+                    { "data": "Email" },
+                    { "data": "Subject" },
+                    { "data": "Message" },
+                    { "data": "TimeStampSent" }
+                ]
+            });
         });
     </script>
 </body>

@@ -1,6 +1,7 @@
 ﻿using loadingpanel.Data;
 using loadingpanel.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,8 @@ namespace loadingpanel.Controllers
                 };
                 sendList.Add(SendEmailViewModelItem);
             }
+
+            string json = JsonConvert.SerializeObject(sendList, Formatting.Indented);
 
             return View(sendList);
         }
