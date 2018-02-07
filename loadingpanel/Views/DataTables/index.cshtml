@@ -46,18 +46,46 @@
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
     <script>
-        $(document).ready(function () {
-            $('#example').DataTable({
-                "ajax": '/Ajax/arrays.txt',
-                "columns": [
-                    { "data": "Name" },
-                    { "data": "Email" },
-                    { "data": "Subject" },
-                    { "data": "Message" },
-                    { "data": "TimeStampSent" }
-                ]
-            });
+
+        //$(document).ready(function () {
+        //    $('#example').DataTable({
+        //        "ajax": {
+        //            "url": "/DataTables/GetEmailData",
+        //            "dataSrc": ""
+        //        },
+        //        "columns": [
+        //            { "data": "fromName" },
+        //            { "data": "toEmailAddress" },
+        //            { "data": "toSubject" },
+        //            { "data": "toMessage" },
+        //            { "data": "emailSentTimeStamp" }
+        //        ]
+        //    });
+        //});
+
+        $.ajax({
+            type: "GET",
+            url: "/DataTables/GetEmailData",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (mems) {
+                var aData = mems;
+                $('#example').DataTable({
+                    data: mems,
+                    "columns": [
+                        { "data": "fromName" },
+                        { "data": "toEmailAddress" },
+                        { "data": "toSubject" },
+                        { "data": "toMessage" },
+                        { "data": "emailSentTimeStamp" }
+                    ]
+                })
+            },
+            error: function (e) {
+                alert(e);
+            }
         });
+
     </script>
 </body>
 </html>

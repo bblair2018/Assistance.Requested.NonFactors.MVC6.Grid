@@ -9,6 +9,8 @@ namespace loadingpanel.Data
 {
     public class EmailSenderRepository : IEmailSenderRepository
     {
+        #region GetAllEmailItems
+
         public IEnumerable<EmailItem> GetAllEmailItems()
         {
             EmailSenderSeeder seeder = new EmailSenderSeeder();
@@ -43,5 +45,7 @@ namespace loadingpanel.Data
 
             return sendList;
         }
+
+        #endregion
     }
 }

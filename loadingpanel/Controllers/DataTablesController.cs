@@ -24,27 +24,13 @@ namespace loadingpanel.Controllers
         {
             ViewData["Message"] = "Please see the information below for the email sent history.";
 
-            List<SendEmailViewModel> sendList = new List<SendEmailViewModel>();
-            SendEmailViewModel SendEmailViewModelItem;
+            return View();
+        }
 
-            var results = _repository.GetAllEmailItems();
-
-            foreach (var resultItem in results)
-            {
-                SendEmailViewModelItem = new SendEmailViewModel()
-                {
-                    Email = resultItem.toEmailAddress,
-                    Name = resultItem.fromName,
-                    Message = resultItem.toMessage,
-                    Subject = resultItem.toSubject,
-                    TimeStampSent = resultItem.emailSentTimeStamp
-                };
-                sendList.Add(SendEmailViewModelItem);
-            }
-
-            string json = JsonConvert.SerializeObject(sendList, Formatting.Indented);
-
-            return View(sendList);
+        [HttpGet]
+        public JsonResult GetEmailData()
+        {
+            return Json(_repository.GetAllEmailItems());
         }
     }
 }
